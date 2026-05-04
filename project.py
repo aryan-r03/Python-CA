@@ -12,8 +12,13 @@ def book_appointment():
         time   = input("Enter time (e.g. 10:00 AM): ")
         reason = input("Enter reason: ")
         appointments[apt_id] = {
-            "name": name, "age": age, "doctor": doctor,
-            "date": date, "time": time, "reason": reason, "status": "Scheduled"
+            "name": name,
+            "age": age,
+            "doctor": doctor,
+            "date": date,
+            "time": time,
+            "reason": reason,
+            "status": "Scheduled"
         }
         print("Appointment booked successfully!")
 
@@ -22,16 +27,22 @@ def view_appointments():
         print("No appointments found.")
     else:
         for apt_id, info in appointments.items():
-            print(f"\nID: {apt_id} | {info['name']} (Age: {info['age']}) | "
-                  f"Dr. {info['doctor']} | {info['date']} at {info['time']} | "
-                  f"Reason: {info['reason']} | Status: {info['status']}")
+            print(f"""\nID: {apt_id} : {info['name']}
+            (Age: {info['age']}) 
+            Dr. {info['doctor']} 
+            {info['date']} at {info['time']} 
+            Reason: {info['reason']} 
+            Status: {info['status']}""")
 
 def search_appointment():
     apt_id = input("Enter appointment ID to search: ")
     if apt_id in appointments:
         info = appointments[apt_id]
-        print(f"Found -> Patient: {info['name']}, Doctor: {info['doctor']}, "
-              f"Date: {info['date']}, Time: {info['time']}, Status: {info['status']}")
+        print(f"""Found -> Patient: {info['name']},
+        Doctor: {info['doctor']},
+        Date: {info['date']},
+        Time: {info['time']}, 
+        Status: {info['status']}""")
     else:
         print("Appointment not found.")
 
